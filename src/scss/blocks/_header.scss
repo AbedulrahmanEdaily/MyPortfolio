@@ -1,0 +1,126 @@
+@use '../utils/variables';
+@use '../utils/mixins';
+
+
+header{
+    background-color: #fff;
+    padding: 20px 0;
+    max-height: 96px;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 600;
+            .logo__initials{
+                width: 56px;
+                height: 56px;
+                background-color: variables.$primary-color;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-size: 24px;
+                font-weight: 500;
+            }
+            .logo__text{
+                font-size: 32px;
+                font-weight: 600;
+            }
+        }
+        nav{
+            .nav__list{
+                display: flex;
+                align-items: center;
+                gap: 40px;
+                .nav__item{
+                    a{
+                        color:#333333;
+                        transition: 0.3s;
+                    }
+                    &:not(:last-child){
+                        a{
+                            &:hover{
+                                color: variables.$primary-color;
+                            }
+                        }
+                    }
+                }
+                .nav__item--purble{
+                    @include mixins.button-purple();
+                    a{
+                        color: white;
+                    }
+                }
+            }
+            .header__bars{
+                display: none;
+            }
+        }
+    }
+    @media (max-width: 991px) {
+        .container{
+            nav{
+                position: relative;
+                transition: 0.3s;
+                .header__bars{
+                    display: block;
+                    cursor: pointer;
+                }
+                
+                .nav__list{
+                    display: none;
+                    position: absolute;
+                    top:30px;
+                    right: 0;
+                    background-color: white;
+                    padding: 20px;
+                    border-radius: 10px;
+                    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+                    z-index: 10;
+                    .nav__item{
+                        display: block;
+                        transition:0.3s;
+                        &:not(:last-child){
+                            margin-bottom: 20px;
+                        }
+                        &:hover{
+                            &:not(:last-child){
+                                padding-left: 15px;
+                            }
+                        }
+                        a{
+                            font-size: 18px;
+                            font-weight: 500;
+                        }
+                    }
+                }
+                &:hover{
+                    .nav__list{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 767px){
+        .container{
+            .logo{
+                .logo__initials{
+                    width: 40px;
+                    height: 40px;
+                    font-size: 16px;
+                }
+                .logo__text{
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    
+}

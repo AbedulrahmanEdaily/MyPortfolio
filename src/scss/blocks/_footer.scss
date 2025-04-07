@@ -1,0 +1,91 @@
+
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+footer{
+    background-color: $background-color-dark;
+    padding: 124px 62px 62px;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 600;
+            .logo__initials{
+                width: 56px;
+                height: 56px;
+                background-color: $primary-color;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-size: 24px;
+                font-weight: 500;
+            }
+            .logo__text{
+                color: white;
+                font-size: 32px;
+                font-weight: 600;
+            }
+        }
+        nav{
+            .nav__list{
+                display: flex;
+                align-items: center;
+                gap: 40px;
+                .nav__item{
+                    a{
+                        color: #F0F1F3;
+                        transition: 0.3s;
+                    }
+                        a{
+                            &:hover{
+                                color: $primary-color;
+                            }
+                        }
+                }
+            }
+        }
+        p{
+            color: #F0F1F3;
+        }
+    }
+    @media (max-width: 991px){
+        .container{
+            nav{
+                display: none;
+            }
+        }
+    }
+    @media (max-width: 767px){
+        .container{
+            .logo{
+                .logo__initials{
+                    width: 40px;
+                    height: 40px;
+                    font-size: 16px;
+                }
+                .logo__text{
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    @media (max-width:575px){
+        .container{
+            .logo{
+                display: none;
+            }
+            p{
+                text-align: center;
+                width: 100%;
+            }
+        }
+    }
+}

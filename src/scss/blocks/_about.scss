@@ -1,0 +1,135 @@
+@use '../utils/variables';
+@use '../utils/mixins';
+
+
+.about{
+    .container{
+        background-color: white;
+        border-radius: 16px;
+        box-shadow: variables.$box-shadow;
+        padding: 112px;
+        display: flex;
+        align-items: center;
+        gap: 135px;
+        z-index: 100;
+        position: relative;
+        bottom: -112px;
+        .about__left{
+            position: relative;
+            img{
+                width:424px;
+                height: 468px;
+                border-radius: 10px;
+            }
+            .about__social{
+                background-color: white;
+                padding: 12px;
+                display: flex;
+                box-shadow: variables.$box-shadow;
+                width: fit-content;
+                border-radius: 4px;
+                position: absolute;
+                bottom: -37px;
+                left: 60px;
+                .social__item{
+                    padding: 15px;
+                    border-radius: 4px;
+                    transition: variables.$transition;
+                    a{
+                        color: variables.$primary-color;
+                    }
+                    &:hover{
+                        background-color: variables.$primary-color;
+                        a{
+                            color: white;
+                        }
+                    }
+                }
+                .social__item--active{
+                    background-color: variables.$primary-color;
+                    a{
+                        color: white;
+                    }
+                }
+            }
+        }
+        .about__right{
+            h2{
+                font-size: 38px;
+                font-weight: 600;
+                margin-bottom: 32px;
+            }
+            .about__p{
+                margin-bottom: 32px;
+                p{
+                    font-size: 18px;
+                    margin-bottom: 16px;
+                }
+            }
+            .about__button--purble{
+                @include mixins.button-purple();
+                border: none;
+                margin-right: 16px;
+            }
+            .about__button--white{
+                @include mixins.button-white();
+                border-width: 1px;
+                border: 1px solid variables.$primary-color;
+                i{
+                    margin-right: 12px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1199px){
+    .about{
+        .container{
+            flex-direction: column;
+        }
+    }
+}
+
+@media (max-width: 766px){
+    .about{
+        .container{
+            .about__right{
+                h2{
+                    font-size: 32px;
+                }
+                .about__p{
+                    p{
+                        font-size: 16px;
+                    }
+                }
+                .about__button--purble{
+                    padding: 8px 16px;
+                    font-size: 14px;
+                }
+                .about__button--white{
+                    padding: 8px 16px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:575px){
+    .about{
+        .container{
+            padding: 32px;
+
+            .about__left{
+                display: none;
+            }
+            .about__right{
+                .about__button--purble{
+                    margin-bottom: 16px;
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

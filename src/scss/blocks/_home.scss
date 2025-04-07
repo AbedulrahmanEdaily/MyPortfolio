@@ -1,0 +1,102 @@
+@use '../utils/variables';
+@use '../utils/mixins';
+
+
+.home{
+    padding:125px 0;
+    overflow: hidden;
+    .home__eliipses{
+        .home__eliipses--1{
+            position: fixed;
+            z-index: -1;
+            @include mixins.circle-blur(872px, variables.$primary-color);
+            top: 50%;
+            left: -800px;
+            transform: translateY(-50%);
+            animation: move1 14s infinite alternate;
+        }
+        .home__eliipses--2{
+            position: fixed;
+            z-index: -1;
+            @include mixins.circle-blur(872px, #7beed1);
+            top: 50%;
+            right: -800px;
+            transform: translateY(-50%);
+            animation: move2 14s infinite alternate;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            gap: 135px;
+            .home__left{
+                h2{
+                    font-size: 72px;
+                    font-weight: 600;
+                    margin-bottom: variables.$margin; 
+                }
+                p{
+                    font-size: 18px;
+                    margin-bottom: variables.$margin; 
+                }
+                .home__button--purble{
+                    @include mixins.button-purple();
+                    border: none;
+                }
+            }
+            .home__right{
+                img{
+                    width: 636px;
+                    height: 636px;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+@keyframes move1 {
+    0%{
+        left: -800px;
+    }
+    50% {
+        left: 70vw;
+    }
+    100% {
+        left: 30vw;
+    }
+}
+
+@keyframes move2 {
+    0% {
+        right: -800px;
+    }
+    50% {
+        right: 70vw;
+    }
+    100% {
+        right: 30vw;
+    }
+}
+
+
+@media (max-width: 991px){
+    .home{
+        .container{
+            .home__left{
+                .home__contant{
+                    h2{
+                        font-size: 48px;
+                    }
+                    p{
+                        font-size: 16px;
+                    }
+                }
+            }
+            .home__right{
+                display: none;
+            }
+        }
+    }
+}

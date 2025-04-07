@@ -1,0 +1,50 @@
+
+@use 'variables';
+
+@mixin button-purple() {
+    padding: 12px 24px;
+    background-color: variables.$primary-color;
+    color: white;
+    width: fit-content;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-size: 16px;
+    font-weight: 600;
+    &:hover {
+        background-color: #8431CC;
+    }
+}
+
+@mixin button-white() {
+    padding: 12px 24px;
+    background-color: white ;
+    color: variables.$primary-color;
+    width: fit-content;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-size: 16px;
+    font-weight: 600;
+    &:hover {
+        background-color: variables.$primary-color;
+        color:white;
+    }
+}
+
+
+@mixin section-text(){
+    font-size: 48px;
+    font-weight: 600;
+    width: fit-content;
+    margin: 0 auto 24px;
+    text-align: center;
+    color:black;
+}
+
+@mixin circle-blur($width, $color) {
+    width: $width;
+    height: $width;
+    background-color: $color;
+    border-radius: 50%;
+    filter: blur(600px);
+    -webkit-filter: blur(600px);
+}

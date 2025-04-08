@@ -41,6 +41,7 @@
                 .home__button--purble{
                     @include mixins.button-purple();
                     border: none;
+                    display: block;
                 }
             }
             .home__right{

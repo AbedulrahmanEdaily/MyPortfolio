@@ -229,6 +229,7 @@ header .container nav .header__bars {
   font-size: 16px;
   font-weight: 600;
   border: none;
+  display: block;
 }
 .home .home__eliipses .container .home__left .home__button--purble:hover {
   background-color: #8431CC;
